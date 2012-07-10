@@ -1,0 +1,639 @@
+﻿[
+{
+"Age": "0",
+"UpperTop": "1.3192",
+"UpperBottom": "1.3192",
+"LowerTop": "1.3192",
+"LowerBottom": "1.3192"
+},
+{
+"Age": "1",
+"UpperTop": "1.320884112",
+"UpperBottom": "1.320488045",
+"LowerTop": "1.319959955",
+"LowerBottom": "1.319563888"
+},
+{
+"Age": "2",
+"UpperTop": "1.322569248",
+"UpperBottom": "1.321776499",
+"LowerTop": "1.320719501",
+"LowerBottom": "1.319926752"
+},
+{
+"Age": "3",
+"UpperTop": "1.324255408",
+"UpperBottom": "1.323065363",
+"LowerTop": "1.321478637",
+"LowerBottom": "1.320288592"
+},
+{
+"Age": "4",
+"UpperTop": "1.325942592",
+"UpperBottom": "1.324354637",
+"LowerTop": "1.322237363",
+"LowerBottom": "1.320649408"
+},
+{
+"Age": "5",
+"UpperTop": "1.3276308",
+"UpperBottom": "1.32564432",
+"LowerTop": "1.32299568",
+"LowerBottom": "1.3210092"
+},
+{
+"Age": "6",
+"UpperTop": "1.329320032",
+"UpperBottom": "1.326934413",
+"LowerTop": "1.323753587",
+"LowerBottom": "1.321367968"
+},
+{
+"Age": "7",
+"UpperTop": "1.331010288",
+"UpperBottom": "1.328224915",
+"LowerTop": "1.324511085",
+"LowerBottom": "1.321725712"
+},
+{
+"Age": "8",
+"UpperTop": "1.332701568",
+"UpperBottom": "1.329515827",
+"LowerTop": "1.325268173",
+"LowerBottom": "1.322082432"
+},
+{
+"Age": "9",
+"UpperTop": "1.334393872",
+"UpperBottom": "1.330807149",
+"LowerTop": "1.326024851",
+"LowerBottom": "1.322438128"
+},
+{
+"Age": "10",
+"UpperTop": "1.3360872",
+"UpperBottom": "1.33209888",
+"LowerTop": "1.32678112",
+"LowerBottom": "1.3227928"
+},
+{
+"Age": "11",
+"UpperTop": "1.337781552",
+"UpperBottom": "1.333391021",
+"LowerTop": "1.327536979",
+"LowerBottom": "1.323146448"
+},
+{
+"Age": "12",
+"UpperTop": "1.339476928",
+"UpperBottom": "1.334683571",
+"LowerTop": "1.328292429",
+"LowerBottom": "1.323499072"
+},
+{
+"Age": "13",
+"UpperTop": "1.341173328",
+"UpperBottom": "1.335976531",
+"LowerTop": "1.329047469",
+"LowerBottom": "1.323850672"
+},
+{
+"Age": "14",
+"UpperTop": "1.342870752",
+"UpperBottom": "1.337269901",
+"LowerTop": "1.329802099",
+"LowerBottom": "1.324201248"
+},
+{
+"Age": "15",
+"UpperTop": "1.3445692",
+"UpperBottom": "1.33856368",
+"LowerTop": "1.33055632",
+"LowerBottom": "1.3245508"
+},
+{
+"Age": "16",
+"UpperTop": "1.346268672",
+"UpperBottom": "1.339857869",
+"LowerTop": "1.331310131",
+"LowerBottom": "1.324899328"
+},
+{
+"Age": "17",
+"UpperTop": "1.347969168",
+"UpperBottom": "1.341152467",
+"LowerTop": "1.332063533",
+"LowerBottom": "1.325246832"
+},
+{
+"Age": "18",
+"UpperTop": "1.349670688",
+"UpperBottom": "1.342447475",
+"LowerTop": "1.332816525",
+"LowerBottom": "1.325593312"
+},
+{
+"Age": "19",
+"UpperTop": "1.351373232",
+"UpperBottom": "1.343742893",
+"LowerTop": "1.333569107",
+"LowerBottom": "1.325938768"
+},
+{
+"Age": "20",
+"UpperTop": "1.3530768",
+"UpperBottom": "1.34503872",
+"LowerTop": "1.33432128",
+"LowerBottom": "1.3262832"
+},
+{
+"Age": "21",
+"UpperTop": "1.354781392",
+"UpperBottom": "1.346334957",
+"LowerTop": "1.335073043",
+"LowerBottom": "1.326626608"
+},
+{
+"Age": "22",
+"UpperTop": "1.356487008",
+"UpperBottom": "1.347631603",
+"LowerTop": "1.335824397",
+"LowerBottom": "1.326968992"
+},
+{
+"Age": "23",
+"UpperTop": "1.358193648",
+"UpperBottom": "1.348928659",
+"LowerTop": "1.336575341",
+"LowerBottom": "1.327310352"
+},
+{
+"Age": "24",
+"UpperTop": "1.359901312",
+"UpperBottom": "1.350226125",
+"LowerTop": "1.337325875",
+"LowerBottom": "1.327650688"
+},
+{
+"Age": "25",
+"UpperTop": "1.36161",
+"UpperBottom": "1.351524",
+"LowerTop": "1.338076",
+"LowerBottom": "1.32799"
+},
+{
+"Age": "26",
+"UpperTop": "1.363319712",
+"UpperBottom": "1.352822285",
+"LowerTop": "1.338825715",
+"LowerBottom": "1.328328288"
+},
+{
+"Age": "27",
+"UpperTop": "1.365030448",
+"UpperBottom": "1.354120979",
+"LowerTop": "1.339575021",
+"LowerBottom": "1.328665552"
+},
+{
+"Age": "28",
+"UpperTop": "1.366742208",
+"UpperBottom": "1.355420083",
+"LowerTop": "1.340323917",
+"LowerBottom": "1.329001792"
+},
+{
+"Age": "29",
+"UpperTop": "1.368454992",
+"UpperBottom": "1.356719597",
+"LowerTop": "1.341072403",
+"LowerBottom": "1.329337008"
+},
+{
+"Age": "30",
+"UpperTop": "1.3701688",
+"UpperBottom": "1.35801952",
+"LowerTop": "1.34182048",
+"LowerBottom": "1.3296712"
+},
+{
+"Age": "31",
+"UpperTop": "1.371883632",
+"UpperBottom": "1.359319853",
+"LowerTop": "1.342568147",
+"LowerBottom": "1.330004368"
+},
+{
+"Age": "32",
+"UpperTop": "1.373599488",
+"UpperBottom": "1.360620595",
+"LowerTop": "1.343315405",
+"LowerBottom": "1.330336512"
+},
+{
+"Age": "33",
+"UpperTop": "1.375316368",
+"UpperBottom": "1.361921747",
+"LowerTop": "1.344062253",
+"LowerBottom": "1.330667632"
+},
+{
+"Age": "34",
+"UpperTop": "1.377034272",
+"UpperBottom": "1.363223309",
+"LowerTop": "1.344808691",
+"LowerBottom": "1.330997728"
+},
+{
+"Age": "35",
+"UpperTop": "1.3787532",
+"UpperBottom": "1.36452528",
+"LowerTop": "1.34555472",
+"LowerBottom": "1.3313268"
+},
+{
+"Age": "36",
+"UpperTop": "1.380473152",
+"UpperBottom": "1.365827661",
+"LowerTop": "1.346300339",
+"LowerBottom": "1.331654848"
+},
+{
+"Age": "37",
+"UpperTop": "1.382194128",
+"UpperBottom": "1.367130451",
+"LowerTop": "1.347045549",
+"LowerBottom": "1.331981872"
+},
+{
+"Age": "38",
+"UpperTop": "1.383916128",
+"UpperBottom": "1.368433651",
+"LowerTop": "1.347790349",
+"LowerBottom": "1.332307872"
+},
+{
+"Age": "39",
+"UpperTop": "1.385639152",
+"UpperBottom": "1.369737261",
+"LowerTop": "1.348534739",
+"LowerBottom": "1.332632848"
+},
+{
+"Age": "40",
+"UpperTop": "1.3873632",
+"UpperBottom": "1.37104128",
+"LowerTop": "1.34927872",
+"LowerBottom": "1.3329568"
+},
+{
+"Age": "41",
+"UpperTop": "1.389088272",
+"UpperBottom": "1.372345709",
+"LowerTop": "1.350022291",
+"LowerBottom": "1.333279728"
+},
+{
+"Age": "42",
+"UpperTop": "1.390814368",
+"UpperBottom": "1.373650547",
+"LowerTop": "1.350765453",
+"LowerBottom": "1.333601632"
+},
+{
+"Age": "43",
+"UpperTop": "1.392541488",
+"UpperBottom": "1.374955795",
+"LowerTop": "1.351508205",
+"LowerBottom": "1.333922512"
+},
+{
+"Age": "44",
+"UpperTop": "1.394269632",
+"UpperBottom": "1.376261453",
+"LowerTop": "1.352250547",
+"LowerBottom": "1.334242368"
+},
+{
+"Age": "45",
+"UpperTop": "1.3959988",
+"UpperBottom": "1.37756752",
+"LowerTop": "1.35299248",
+"LowerBottom": "1.3345612"
+},
+{
+"Age": "46",
+"UpperTop": "1.397728992",
+"UpperBottom": "1.378873997",
+"LowerTop": "1.353734003",
+"LowerBottom": "1.334879008"
+},
+{
+"Age": "47",
+"UpperTop": "1.399460208",
+"UpperBottom": "1.380180883",
+"LowerTop": "1.354475117",
+"LowerBottom": "1.335195792"
+},
+{
+"Age": "48",
+"UpperTop": "1.401192448",
+"UpperBottom": "1.381488179",
+"LowerTop": "1.355215821",
+"LowerBottom": "1.335511552"
+},
+{
+"Age": "49",
+"UpperTop": "1.402925712",
+"UpperBottom": "1.382795885",
+"LowerTop": "1.355956115",
+"LowerBottom": "1.335826288"
+},
+{
+"Age": "50",
+"UpperTop": "1.40466",
+"UpperBottom": "1.384104",
+"LowerTop": "1.356696",
+"LowerBottom": "1.33614"
+},
+{
+"Age": "51",
+"UpperTop": "1.406395312",
+"UpperBottom": "1.385412525",
+"LowerTop": "1.357435475",
+"LowerBottom": "1.336452688"
+},
+{
+"Age": "52",
+"UpperTop": "1.408131648",
+"UpperBottom": "1.386721459",
+"LowerTop": "1.358174541",
+"LowerBottom": "1.336764352"
+},
+{
+"Age": "53",
+"UpperTop": "1.409869008",
+"UpperBottom": "1.388030803",
+"LowerTop": "1.358913197",
+"LowerBottom": "1.337074992"
+},
+{
+"Age": "54",
+"UpperTop": "1.411607392",
+"UpperBottom": "1.389340557",
+"LowerTop": "1.359651443",
+"LowerBottom": "1.337384608"
+},
+{
+"Age": "55",
+"UpperTop": "1.4133468",
+"UpperBottom": "1.39065072",
+"LowerTop": "1.36038928",
+"LowerBottom": "1.3376932"
+},
+{
+"Age": "56",
+"UpperTop": "1.415087232",
+"UpperBottom": "1.391961293",
+"LowerTop": "1.361126707",
+"LowerBottom": "1.338000768"
+},
+{
+"Age": "57",
+"UpperTop": "1.416828688",
+"UpperBottom": "1.393272275",
+"LowerTop": "1.361863725",
+"LowerBottom": "1.338307312"
+},
+{
+"Age": "58",
+"UpperTop": "1.418571168",
+"UpperBottom": "1.394583667",
+"LowerTop": "1.362600333",
+"LowerBottom": "1.338612832"
+},
+{
+"Age": "59",
+"UpperTop": "1.420314672",
+"UpperBottom": "1.395895469",
+"LowerTop": "1.363336531",
+"LowerBottom": "1.338917328"
+},
+{
+"Age": "60",
+"UpperTop": "1.4220592",
+"UpperBottom": "1.39720768",
+"LowerTop": "1.36407232",
+"LowerBottom": "1.3392208"
+},
+{
+"Age": "61",
+"UpperTop": "1.423804752",
+"UpperBottom": "1.398520301",
+"LowerTop": "1.364807699",
+"LowerBottom": "1.339523248"
+},
+{
+"Age": "62",
+"UpperTop": "1.425551328",
+"UpperBottom": "1.399833331",
+"LowerTop": "1.365542669",
+"LowerBottom": "1.339824672"
+},
+{
+"Age": "63",
+"UpperTop": "1.427298928",
+"UpperBottom": "1.401146771",
+"LowerTop": "1.366277229",
+"LowerBottom": "1.340125072"
+},
+{
+"Age": "64",
+"UpperTop": "1.429047552",
+"UpperBottom": "1.402460621",
+"LowerTop": "1.367011379",
+"LowerBottom": "1.340424448"
+},
+{
+"Age": "65",
+"UpperTop": "1.4307972",
+"UpperBottom": "1.40377488",
+"LowerTop": "1.36774512",
+"LowerBottom": "1.3407228"
+},
+{
+"Age": "66",
+"UpperTop": "1.432547872",
+"UpperBottom": "1.405089549",
+"LowerTop": "1.368478451",
+"LowerBottom": "1.341020128"
+},
+{
+"Age": "67",
+"UpperTop": "1.434299568",
+"UpperBottom": "1.406404627",
+"LowerTop": "1.369211373",
+"LowerBottom": "1.341316432"
+},
+{
+"Age": "68",
+"UpperTop": "1.436052288",
+"UpperBottom": "1.407720115",
+"LowerTop": "1.369943885",
+"LowerBottom": "1.341611712"
+},
+{
+"Age": "69",
+"UpperTop": "1.437806032",
+"UpperBottom": "1.409036013",
+"LowerTop": "1.370675987",
+"LowerBottom": "1.341905968"
+},
+{
+"Age": "70",
+"UpperTop": "1.4395608",
+"UpperBottom": "1.41035232",
+"LowerTop": "1.37140768",
+"LowerBottom": "1.3421992"
+},
+{
+"Age": "71",
+"UpperTop": "1.441316592",
+"UpperBottom": "1.411669037",
+"LowerTop": "1.372138963",
+"LowerBottom": "1.342491408"
+},
+{
+"Age": "72",
+"UpperTop": "1.443073408",
+"UpperBottom": "1.412986163",
+"LowerTop": "1.372869837",
+"LowerBottom": "1.342782592"
+},
+{
+"Age": "73",
+"UpperTop": "1.444831248",
+"UpperBottom": "1.414303699",
+"LowerTop": "1.373600301",
+"LowerBottom": "1.343072752"
+},
+{
+"Age": "74",
+"UpperTop": "1.446590112",
+"UpperBottom": "1.415621645",
+"LowerTop": "1.374330355",
+"LowerBottom": "1.343361888"
+},
+{
+"Age": "75",
+"UpperTop": "1.44835",
+"UpperBottom": "1.41694",
+"LowerTop": "1.37506",
+"LowerBottom": "1.34365"
+},
+{
+"Age": "76",
+"UpperTop": "1.450110912",
+"UpperBottom": "1.418258765",
+"LowerTop": "1.375789235",
+"LowerBottom": "1.343937088"
+},
+{
+"Age": "77",
+"UpperTop": "1.451872848",
+"UpperBottom": "1.419577939",
+"LowerTop": "1.376518061",
+"LowerBottom": "1.344223152"
+},
+{
+"Age": "78",
+"UpperTop": "1.453635808",
+"UpperBottom": "1.420897523",
+"LowerTop": "1.377246477",
+"LowerBottom": "1.344508192"
+},
+{
+"Age": "79",
+"UpperTop": "1.455399792",
+"UpperBottom": "1.422217517",
+"LowerTop": "1.377974483",
+"LowerBottom": "1.344792208"
+},
+{
+"Age": "80",
+"UpperTop": "1.4571648",
+"UpperBottom": "1.42353792",
+"LowerTop": "1.37870208",
+"LowerBottom": "1.3450752"
+},
+{
+"Age": "81",
+"UpperTop": "1.458930832",
+"UpperBottom": "1.424858733",
+"LowerTop": "1.379429267",
+"LowerBottom": "1.345357168"
+},
+{
+"Age": "82",
+"UpperTop": "1.460697888",
+"UpperBottom": "1.426179955",
+"LowerTop": "1.380156045",
+"LowerBottom": "1.345638112"
+},
+{
+"Age": "83",
+"UpperTop": "1.462465968",
+"UpperBottom": "1.427501587",
+"LowerTop": "1.380882413",
+"LowerBottom": "1.345918032"
+},
+{
+"Age": "84",
+"UpperTop": "1.464235072",
+"UpperBottom": "1.428823629",
+"LowerTop": "1.381608371",
+"LowerBottom": "1.346196928"
+},
+{
+"Age": "85",
+"UpperTop": "1.4660052",
+"UpperBottom": "1.43014608",
+"LowerTop": "1.38233392",
+"LowerBottom": "1.3464748"
+},
+{
+"Age": "86",
+"UpperTop": "1.467776352",
+"UpperBottom": "1.431468941",
+"LowerTop": "1.383059059",
+"LowerBottom": "1.346751648"
+},
+{
+"Age": "87",
+"UpperTop": "1.469548528",
+"UpperBottom": "1.432792211",
+"LowerTop": "1.383783789",
+"LowerBottom": "1.347027472"
+},
+{
+"Age": "88",
+"UpperTop": "1.471321728",
+"UpperBottom": "1.434115891",
+"LowerTop": "1.384508109",
+"LowerBottom": "1.347302272"
+},
+{
+"Age": "89",
+"UpperTop": "1.473095952",
+"UpperBottom": "1.435439981",
+"LowerTop": "1.385232019",
+"LowerBottom": "1.347576048"
+},
+{
+"Age": "90",
+"UpperTop": "1.4748712",
+"UpperBottom": "1.43676448",
+"LowerTop": "1.38595552",
+"LowerBottom": "1.3478488"
+}
+]

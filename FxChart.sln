@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FxChart", "FxChart\FxChart.csproj", "{528FA003-2E4F-4139-8405-3345C5536A29}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FxChart.Web", "FxChart.Web\FxChart.Web.csproj", "{7EBE87A1-0D20-400A-9C05-2B6EC6A54353}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{528FA003-2E4F-4139-8405-3345C5536A29}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{528FA003-2E4F-4139-8405-3345C5536A29}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{528FA003-2E4F-4139-8405-3345C5536A29}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{528FA003-2E4F-4139-8405-3345C5536A29}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7EBE87A1-0D20-400A-9C05-2B6EC6A54353}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7EBE87A1-0D20-400A-9C05-2B6EC6A54353}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7EBE87A1-0D20-400A-9C05-2B6EC6A54353}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7EBE87A1-0D20-400A-9C05-2B6EC6A54353}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
