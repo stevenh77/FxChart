@@ -1,8 +1,5 @@
 ﻿<Application xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
-             x:Class="FxChart.App"
-             >
-    <Application.Resources>
-        
-    </Application.Resources>
+             xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation" xmlns:Telerik_Windows_Media_Media3D="clr-namespace:Telerik.Windows.Media.Media3D;assembly=Telerik.Windows.Controls.Charting" 
+             x:Class="FxChart.App">
 </Application>

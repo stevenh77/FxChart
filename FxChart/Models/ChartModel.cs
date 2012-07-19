@@ -9,6 +9,6 @@
         public decimal? UpperBottom { get; set; }
         public decimal? LowerTop { get; set; }
         public decimal? LowerBottom { get; set; }
-        public decimal? Yield { get; set; } 
+        public Coupon Coupon { get; set; } 
     }
 }

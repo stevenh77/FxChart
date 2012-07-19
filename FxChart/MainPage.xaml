@@ -3,8 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:chart="clr-namespace:Telerik.Windows.Controls;assembly=Telerik.Windows.Controls.Charting"
              xmlns:charting="clr-namespace:Telerik.Windows.Controls.Charting;assembly=Telerik.Windows.Controls.Charting"
-             xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
-             xmlns:telerikQuickStart="clr-namespace:Telerik.Windows.Controls.QuickStart;assembly=Telerik.Windows.Controls">
+             xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation">
     <UserControl.Resources>
         <SolidColorBrush x:Key="GoBrush" Color="#ffcae8a0" />
         <SolidColorBrush x:Key="HistoricBrush" Color="#FF1B9DDE" />
@@ -13,54 +12,21 @@
     </UserControl.Resources>
 
     <Grid>
-        <!--
-            <Grid Name="CrosshairContainer"
-            Background="Transparent"
-            Canvas.ZIndex="1"
-            MouseEnter="CrosshairContainer_MouseEnter"
-            MouseLeave="CrosshairContainer_MouseLeave"
-            MouseMove="CrosshairContainer_MouseMove">
-            <Grid Name="Crosshair">
-            <Line Name="Vertical"
-            Stroke="Black"
-            X1="{Binding Path=X}"
-            X2="{Binding Path=X}"
-            Y1="0"
-            Y2="400" />
-            <Line Name="Horizontal"
-            Stroke="Black"
-            X1="0"
-            X2="400"
-            Y1="{Binding Path=Y}"
-            Y2="{Binding Path=Y}" />
-            </Grid>
-            </Grid>
-            
-            <Border Name="LocationIndicator"
-            Canvas.ZIndex="2"
-            Style="{StaticResource LocationLegendStyle}"
-            Visibility="Collapsed">
-            <StackPanel Margin="5" Orientation="Horizontal">
-            <TextBlock Text="Location: " />
-            <TextBlock Text="{Binding Path=Key, Converter={StaticResource FormattingConverter}, ConverterParameter=hh:mm:ss}" />
-            <TextBlock Text=", " />
-            <TextBlock Text="{Binding Path=Value, Converter={StaticResource FormattingConverter}, ConverterParameter=0.00}" />
-            </StackPanel>
-            </Border>
-        -->
-
         <chart:RadChart x:Name="RadChart1"
                         Background="White"
                         BorderThickness="0"
                         FontFamily="/TradeChart;component/Fonts/Fonts.zip#Segoe UI"
                         FontSize="10.667"
                         ItemsSource="{Binding .}">
+
             <chart:RadChart.SeriesMappings>
+
+                <!-- LINE SERIES FOR HISTORIC PRICE -->
                 <charting:SeriesMapping>
                     <charting:SeriesMapping.SeriesDefinition>
                         <charting:LineSeriesDefinition EmptyPointBehavior="Gap"
-                                                       ShowItemLabels="False"
-                                                       ShowPointMarks="False">
+                                                        ShowItemLabels="False"
+                                                        ShowPointMarks="False">
                             <charting:LineSeriesDefinition.Appearance>
                                 <charting:SeriesAppearanceSettings Stroke="{StaticResource HistoricBrush}">
                                     <charting:SeriesAppearanceSettings.PointMark>
@@ -93,10 +59,10 @@
                     </charting:SeriesMapping>
                 -->
 
-
+            <!--  RANGE SERIES FOR UPPER DEALER INTERVENTION -->
                 <charting:SeriesMapping>
                     <charting:SeriesMapping.SeriesDefinition>
-                        <charting:RangeSeriesDefinition ShowItemLabels="False" ShowPointMarks="False">
+                        <charting:RangeSeriesDefinition ShowItemLabels="False" ShowPointMarks="False" EmptyPointBehavior="Drop">
                             <charting:RangeSeriesDefinition.Appearance>
                                 <charting:SeriesAppearanceSettings Fill="{StaticResource WarningBrush}" Stroke="{StaticResource WarningBrush}" />
                             </charting:RangeSeriesDefinition.Appearance>
@@ -107,9 +73,10 @@
                     <charting:ItemMapping DataPointMember="XCategory" FieldName="Age" />
                 </charting:SeriesMapping>
 
+                <!--  RANGE SERIES FOR BOOKABLE DEALS -->
                 <charting:SeriesMapping>
                     <charting:SeriesMapping.SeriesDefinition>
-                        <charting:RangeSeriesDefinition ShowItemLabels="False" ShowPointMarks="False">
+                        <charting:RangeSeriesDefinition ShowItemLabels="False" ShowPointMarks="False" EmptyPointBehavior="Drop">
                             <charting:RangeSeriesDefinition.Appearance>
                                 <charting:SeriesAppearanceSettings Fill="{StaticResource GoBrush}" Stroke="{StaticResource GoBrush}" />
                             </charting:RangeSeriesDefinition.Appearance>
@@ -120,9 +87,10 @@
                     <charting:ItemMapping DataPointMember="XCategory" FieldName="Age" />
                 </charting:SeriesMapping>
 
+                <!--  RANGE SERIES FOR LOWER DEALER INTERVENTION -->
                 <charting:SeriesMapping>
                     <charting:SeriesMapping.SeriesDefinition>
-                        <charting:RangeSeriesDefinition ShowItemLabels="False" ShowPointMarks="False">
+                        <charting:RangeSeriesDefinition ShowItemLabels="False" ShowPointMarks="False" EmptyPointBehavior="Drop">
                             <charting:RangeSeriesDefinition.Appearance>
                                 <charting:SeriesAppearanceSettings Fill="{StaticResource WarningBrush}" Stroke="{StaticResource WarningBrush}" />
                             </charting:RangeSeriesDefinition.Appearance>
@@ -133,49 +101,69 @@
                     <charting:ItemMapping DataPointMember="XCategory" FieldName="Age" />
                 </charting:SeriesMapping>
 
-                <charting:SeriesMapping>
+                <!--  BUBBLE SERIES FOR COUPON YIELD -->
+                <charting:SeriesMapping x:Name="CouponBubbleSeries">
                     <charting:SeriesMapping.SeriesDefinition>
-                        <charting:LineSeriesDefinition ShowItemLabels="False" ShowPointMarks="False">
-                            <charting:LineSeriesDefinition.Appearance>
-                                <charting:SeriesAppearanceSettings Stroke="{StaticResource WarningBrush}" />
-                            </charting:LineSeriesDefinition.Appearance>
-                        </charting:LineSeriesDefinition>
-                    </charting:SeriesMapping.SeriesDefinition>
-                    <charting:ItemMapping DataPointMember="YValue" FieldName="UpperTop" />
-                    <charting:ItemMapping DataPointMember="XCategory" FieldName="Age" />
-                </charting:SeriesMapping>
+                        <charting:BubbleSeriesDefinition x:Name="CouponBubbleSeriesDefinition" 
+                                                         ShowItemLabels="False" 
+                                                         BubbleSizeRepresents="Area" 
+                                                         BubbleSizeRelative="True" 
+                                                         CustomScaleFactor="3"
+                                                         ShowItemToolTips="True"
+                                                         ItemToolTipFormat="Yield: #BUBBLESIZE %">
 
-                <charting:SeriesMapping>
-                    <charting:SeriesMapping.SeriesDefinition>
-                        <charting:BubbleSeriesDefinition BubbleSizeRelative="True"
-                                                         BubbleSizeRepresents="Area"
-                                                         EmptyPointBehavior="Gap"
-                                                         ShowItemLabels="False">
+                            <charting:BubbleSeriesDefinition.AnimationSettings>
+                                <charting:AnimationSettings TotalSeriesAnimationDuration="00:00:00.5"/>
+                            </charting:BubbleSeriesDefinition.AnimationSettings>
+
+
                             <charting:BubbleSeriesDefinition.Appearance>
-                                <charting:SeriesAppearanceSettings Fill="Black" Stroke="Black" />
+                                <charting:SeriesAppearanceSettings Fill="{StaticResource HistoricBrush}" Stroke="{StaticResource HistoricBrush}" />
                             </charting:BubbleSeriesDefinition.Appearance>
+                            
                             <charting:BubbleSeriesDefinition.InteractivitySettings>
                                 <charting:InteractivitySettings HoverScope="Item"
                                                                 SelectionMode="Single"
                                                                 SelectionScope="Item" />
                             </charting:BubbleSeriesDefinition.InteractivitySettings>
+                            
                         </charting:BubbleSeriesDefinition>
                     </charting:SeriesMapping.SeriesDefinition>
-                    <charting:ItemMapping DataPointMember="YValue" FieldName="Rate" />
-                    <charting:ItemMapping DataPointMember="XValue" FieldName="Age" />
-                    <charting:ItemMapping DataPointMember="BubbleSize" FieldName="Yield" />
+                    <charting:ItemMapping DataPointMember="XCategory" FieldName="Age" />
+                    <charting:ItemMapping DataPointMember="YValue" FieldName="Coupon.Rate" />
+                    <charting:ItemMapping DataPointMember="Label" FieldName="Coupon.Yield" />
+                    <charting:ItemMapping DataPointMember="BubbleSize" FieldName="Coupon.Yield" />
                 </charting:SeriesMapping>
-            </chart:RadChart.SeriesMappings>
 
+            </chart:RadChart.SeriesMappings>
             <chart:RadChart.DefaultView>
                 <charting:ChartDefaultView>
                     <charting:ChartDefaultView.ChartArea>
-                        <charting:ChartArea NoDataString="Loading FX data from historic, future, calculation and coupon services...">
+                        <charting:ChartArea ItemClick="ChartArea_ItemClick" NoDataString="Loading FX data from historic, future, calculation and coupon services...">
+                            <telerik:ChartArea.Annotations>
+                                <!-- cross hairs -->
+                                <telerik:CustomGridLine x:Name="xGridLine"
+                                                        Stroke="#fff89393"
+                                                        StrokeThickness="1" />
+                                <telerik:CustomGridLine x:Name="yGridLine"
+                                                        Stroke="#fff89393"
+                                                        StrokeThickness="1" />
+                                <!-- guide lines -->
+                                <telerik:CustomGridLine x:Name="x"
+                                                        XIntercept="91"
+                                                        Stroke="#ff747474"
+                                                        StrokeThickness="1" />
+                                <telerik:CustomGridLine x:Name="y"
+                                                        YIntercept="1.32"
+                                                        Stroke="#ff747474"
+                                                        StrokeThickness="1" />
+                            </telerik:ChartArea.Annotations>
                             <charting:ChartArea.AxisX>
                                 <charting:AxisX Title="-3m                                                           -2m                                                           -1m                                                       Today                                                      1m                                                           2m                                                           3m"
                                                 AxisLabelsVisibility="Collapsed"
                                                 MajorTicksVisibility="Collapsed"
-                                                MinorTicksVisibility="Collapsed" />
+                                                MinorTicksVisibility="Collapsed" 
+                                                LayoutMode="Between"/>
                             </charting:ChartArea.AxisX>
                             <charting:ChartArea.AxisY>
                                 <charting:AxisY Title="Spot"
@@ -193,11 +181,21 @@
                     <telerik:ChartDefaultView.ChartLegend>
                         <telerik:ChartLegend Visibility="Collapsed" />
                     </telerik:ChartDefaultView.ChartLegend>
-                    <telerik:ChartDefaultView.ChartTitle>
-                        <telerik:ChartTitle Visibility="Collapsed" />
-                    </telerik:ChartDefaultView.ChartTitle>
+                    <!--<telerik:ChartDefaultView.ChartTitle>
+                        <telerik:ChartTitle Visibility="Visible" HorizontalAlignment="Center">
+                            <Border BorderBrush="LightBlue" CornerRadius="5" BorderThickness="2">
+                                <TextBlock Text="Reverse Nexus" />
+                            </Border>
+                        </telerik:ChartTitle>
+                    </telerik:ChartDefaultView.ChartTitle>-->
                 </charting:ChartDefaultView>
             </chart:RadChart.DefaultView>
         </chart:RadChart>
+
+        <StackPanel Orientation="Horizontal" Height="20" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,20,100,0">
+            <TextBlock Name="textX" Margin="0,0,10,0" />
+            <TextBlock Name="textY" />
+        </StackPanel>
+
     </Grid>
 </UserControl>
