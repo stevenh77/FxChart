@@ -24,9 +24,9 @@ namespace FxChart
         {
             InitializeComponent();
 
-            //this.RadChart1.DefaultView.ChartArea.AnimationSettings = new AnimationSettings() { TotalSeriesAnimationDuration = new TimeSpan(0, 0, 0, 0, 500) };
             RadChart1.LayoutUpdated += this.RadChart1_LayoutUpdated;
-            
+            RadChart1.DefaultView.ChartArea.AxisY.AxisStyles.AxisLineStyle = this.Resources["TransparentAxisLineStyle"] as Style;
+
             GetHistoricData();
         }
 
@@ -125,39 +125,13 @@ namespace FxChart
 
         private void SetupChartData()
         {
-            var prices = 
-                (historic.Select(h => new ChartModel() {Age = h.Age, Rate = h.Rate}))
-                .Union(future.Select(f => new ChartModel() { Age = f.Age, Future = f.Rate}))
-                .Select(x => new ChartModel() 
-                    { 
-                        Age= x.Age, 
-                        Rate = x.Rate, 
-                        Future = x.Future, 
-                        LowerBottom = x.LowerBottom,
-                        LowerTop = x.LowerTop,
-                        UpperBottom = x.UpperBottom,
-                        UpperTop = x.LowerTop
-                    });
+            var data =
+                (historic.Select(h => new ChartModel() { Age = h.Age, Rate = h.Rate }))
+                .Union(future.Select(f => new ChartModel() { Age = f.Age, Future = f.Rate }))
+                .Union(range.Select(r => new ChartModel() { Age = r.Age, LowerBottom = r.LowerBottom, LowerTop = r.LowerTop, UpperBottom = r.UpperBottom, UpperTop = r.UpperTop }))
+                .Union(coupon.Select(c => new ChartModel() { Age = c.Age, Coupon = c }))
+                .OrderBy(item => item.Age);
 
-            var chartData = 
-                from p in prices
-                    join r in range on p.Age equals r.Age into temp from temp2 in temp.DefaultIfEmpty()
-                select new ChartModel()
-                    {
-                        Age = p.Age,
-                        Rate = p.Rate,
-                        Future = p.Future,
-                        LowerBottom = temp2 == null ? null : temp2.LowerBottom,
-                        LowerTop = temp2 == null ? null : temp2.LowerTop ,
-                        UpperBottom = temp2 == null ? null : temp2.UpperBottom,
-                        UpperTop = temp2 == null ? null : temp2.UpperTop
-                    };
-
-            var withYield = chartData.Union(coupon.Select(c => new ChartModel() { Age = c.Age, Coupon = c}))
-                                     .Select(x => x)
-                                     .OrderBy(x => x.Age);
-
-            var data = withYield.ToList();
             DataContext = data;
         }
 

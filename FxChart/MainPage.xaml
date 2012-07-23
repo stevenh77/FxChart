@@ -5,10 +5,14 @@
              xmlns:charting="clr-namespace:Telerik.Windows.Controls.Charting;assembly=Telerik.Windows.Controls.Charting"
              xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation">
     <UserControl.Resources>
-        <SolidColorBrush x:Key="GoBrush" Color="#ffcae8a0" />
-        <SolidColorBrush x:Key="HistoricBrush" Color="#FF1B9DDE" />
-        <SolidColorBrush x:Key="WarningBrush" Color="#ffffc261" />
-        <SolidColorBrush x:Key="ErrorBrush" Color="#fff34141" />
+        <SolidColorBrush x:Key="LightBlueColorBrush" Color="#FF93BFE3" />
+        <SolidColorBrush x:Key="BlueColorBrush" Color="#FF1F6BAD" />
+        <SolidColorBrush x:Key="SalmonColorBrush" Color="#FFEBB7B5" />
+        <SolidColorBrush x:Key="LightGrayColorBrush" Color="#FFD7DDE5" />
+        <SolidColorBrush x:Key="GrayColorBrush" Color="#ff747474" />
+        <Style x:Key="TransparentAxisLineStyle" TargetType="Line">
+            <Setter Property="Stroke" Value="Transparent" />
+        </Style>
     </UserControl.Resources>
 
     <Grid>
@@ -18,7 +22,64 @@
                         FontFamily="/TradeChart;component/Fonts/Fonts.zip#Segoe UI"
                         FontSize="10.667"
                         ItemsSource="{Binding .}">
+            <chart:RadChart.DefaultView>
+                <charting:ChartDefaultView>
+                    <charting:ChartDefaultView.ChartArea>
+                        <charting:ChartArea ItemClick="ChartArea_ItemClick" NoDataString="Loading FX data from historic, future, calculation and coupon services..." Background="Transparent">
+                            <telerik:ChartArea.Annotations>
+                                <!-- cross hairs -->
+                                <telerik:CustomGridLine x:Name="xGridLine"
+                                                        Stroke="{StaticResource LightGrayColorBrush}"
+                                                        StrokeThickness="1" />
+                                <telerik:CustomGridLine x:Name="yGridLine"
+                                                        Stroke="{StaticResource LightGrayColorBrush}"
+                                                        StrokeThickness="1" />
+                                <!-- guide lines -->
+                                <!--<telerik:CustomGridLine x:Name="x"
+                                                        XIntercept="91"
+                                                        Stroke="{StaticResource GrayColorBrush}"
+                                                        StrokeThickness="1" />-->
+                                <telerik:CustomGridLine x:Name="y"
+                                                        YIntercept="1.32"
+                                                        Stroke="{StaticResource GrayColorBrush}"
+                                                        StrokeThickness="1" />
+                            </telerik:ChartArea.Annotations>
+                            <charting:ChartArea.AxisX>
+                                <charting:AxisX Title="-3m                                                           -2m                                                           -1m                                                       Today                                                      1m                                                           2m                                                           3m"
+                                                AxisLabelsVisibility="Collapsed"
+                                                MinorGridLinesVisibility="Collapsed"
+                                                MinorTicksVisibility="Collapsed"
+                                                MajorGridLinesVisibility="Collapsed"
+                                                MajorTicksVisibility="Collapsed"
+                                                LayoutMode="Between"/>
+                            </charting:ChartArea.AxisX>
+                            <charting:ChartArea.AxisY>
+                                <charting:AxisY Title="Spot"
+                                                AutoRange="false"
+                                                MinorGridLinesVisibility="Collapsed"
+                                                MinorTicksVisibility="Collapsed"
+                                                MajorGridLinesVisibility="Visible"
+                                                MajorTicksVisibility="Collapsed"
+                                                MaxValue="1.475"
+                                                MinValue="1.220"
+                                                Step="0.02"
+                                                StripLinesVisibility="Collapsed"/>
+                            </charting:ChartArea.AxisY>
+                        </charting:ChartArea>
 
+                    </charting:ChartDefaultView.ChartArea>
+                    <telerik:ChartDefaultView.ChartLegend>
+                        <telerik:ChartLegend Visibility="Collapsed" />
+                    </telerik:ChartDefaultView.ChartLegend>
+                    <!--<telerik:ChartDefaultView.ChartTitle>
+                        <telerik:ChartTitle Visibility="Visible" HorizontalAlignment="Center">
+                            <Border BorderBrush="LightBlue" CornerRadius="5" BorderThickness="2">
+                                <TextBlock Text="Reverse Nexus" />
+                            </Border>
+                        </telerik:ChartTitle>
+                    </telerik:ChartDefaultView.ChartTitle>-->
+                </charting:ChartDefaultView>
+            </chart:RadChart.DefaultView>
             <chart:RadChart.SeriesMappings>
 
                 <!-- LINE SERIES FOR HISTORIC PRICE -->
@@ -28,11 +89,7 @@
                                                         ShowItemLabels="False"
                                                         ShowPointMarks="False">
                             <charting:LineSeriesDefinition.Appearance>
-                                <charting:SeriesAppearanceSettings Stroke="{StaticResource HistoricBrush}">
-                                    <charting:SeriesAppearanceSettings.PointMark>
-                                        <charting:PointMarkAppearanceSettings Stroke="{StaticResource HistoricBrush}" />
-                                    </charting:SeriesAppearanceSettings.PointMark>
-                                </charting:SeriesAppearanceSettings>
+                                <charting:SeriesAppearanceSettings Stroke="{StaticResource BlueColorBrush}"/>
                             </charting:LineSeriesDefinition.Appearance>
                         </charting:LineSeriesDefinition>
                     </charting:SeriesMapping.SeriesDefinition>
@@ -64,7 +121,7 @@
                     <charting:SeriesMapping.SeriesDefinition>
                         <charting:RangeSeriesDefinition ShowItemLabels="False" ShowPointMarks="False" EmptyPointBehavior="Drop">
                             <charting:RangeSeriesDefinition.Appearance>
-                                <charting:SeriesAppearanceSettings Fill="{StaticResource WarningBrush}" Stroke="{StaticResource WarningBrush}" />
+                                <charting:SeriesAppearanceSettings Fill="{StaticResource SalmonColorBrush}" Stroke="{StaticResource SalmonColorBrush}" />
                             </charting:RangeSeriesDefinition.Appearance>
                         </charting:RangeSeriesDefinition>
                     </charting:SeriesMapping.SeriesDefinition>
@@ -78,7 +135,7 @@
                     <charting:SeriesMapping.SeriesDefinition>
                         <charting:RangeSeriesDefinition ShowItemLabels="False" ShowPointMarks="False" EmptyPointBehavior="Drop">
                             <charting:RangeSeriesDefinition.Appearance>
-                                <charting:SeriesAppearanceSettings Fill="{StaticResource GoBrush}" Stroke="{StaticResource GoBrush}" />
+                                <charting:SeriesAppearanceSettings Fill="{StaticResource LightBlueColorBrush}" Stroke="{StaticResource LightBlueColorBrush}" />
                             </charting:RangeSeriesDefinition.Appearance>
                         </charting:RangeSeriesDefinition>
                     </charting:SeriesMapping.SeriesDefinition>
@@ -92,7 +149,7 @@
                     <charting:SeriesMapping.SeriesDefinition>
                         <charting:RangeSeriesDefinition ShowItemLabels="False" ShowPointMarks="False" EmptyPointBehavior="Drop">
                             <charting:RangeSeriesDefinition.Appearance>
-                                <charting:SeriesAppearanceSettings Fill="{StaticResource WarningBrush}" Stroke="{StaticResource WarningBrush}" />
+                                <charting:SeriesAppearanceSettings Fill="{StaticResource SalmonColorBrush}" Stroke="{StaticResource SalmonColorBrush}" />
                             </charting:RangeSeriesDefinition.Appearance>
                         </charting:RangeSeriesDefinition>
                     </charting:SeriesMapping.SeriesDefinition>
@@ -118,7 +175,7 @@
 
 
                             <charting:BubbleSeriesDefinition.Appearance>
-                                <charting:SeriesAppearanceSettings Fill="{StaticResource HistoricBrush}" Stroke="{StaticResource HistoricBrush}" />
+                                <charting:SeriesAppearanceSettings Fill="{StaticResource BlueColorBrush}" Stroke="{StaticResource BlueColorBrush}" />
                             </charting:BubbleSeriesDefinition.Appearance>
                             
                             <charting:BubbleSeriesDefinition.InteractivitySettings>
@@ -136,60 +193,6 @@
                 </charting:SeriesMapping>
 
             </chart:RadChart.SeriesMappings>
-            <chart:RadChart.DefaultView>
-                <charting:ChartDefaultView>
-                    <charting:ChartDefaultView.ChartArea>
-                        <charting:ChartArea ItemClick="ChartArea_ItemClick" NoDataString="Loading FX data from historic, future, calculation and coupon services...">
-                            <telerik:ChartArea.Annotations>
-                                <!-- cross hairs -->
-                                <telerik:CustomGridLine x:Name="xGridLine"
-                                                        Stroke="#fff89393"
-                                                        StrokeThickness="1" />
-                                <telerik:CustomGridLine x:Name="yGridLine"
-                                                        Stroke="#fff89393"
-                                                        StrokeThickness="1" />
-                                <!-- guide lines -->
-                                <telerik:CustomGridLine x:Name="x"
-                                                        XIntercept="91"
-                                                        Stroke="#ff747474"
-                                                        StrokeThickness="1" />
-                                <telerik:CustomGridLine x:Name="y"
-                                                        YIntercept="1.32"
-                                                        Stroke="#ff747474"
-                                                        StrokeThickness="1" />
-                            </telerik:ChartArea.Annotations>
-                            <charting:ChartArea.AxisX>
-                                <charting:AxisX Title="-3m                                                           -2m                                                           -1m                                                       Today                                                      1m                                                           2m                                                           3m"
-                                                AxisLabelsVisibility="Collapsed"
-                                                MajorTicksVisibility="Collapsed"
-                                                MinorTicksVisibility="Collapsed" 
-                                                LayoutMode="Between"/>
-                            </charting:ChartArea.AxisX>
-                            <charting:ChartArea.AxisY>
-                                <charting:AxisY Title="Spot"
-                                                AutoRange="false"
-                                                MajorGridLinesVisibility="Visible"
-                                                MajorTicksVisibility="Visible"
-                                                MaxValue="1.475"
-                                                MinValue="1.220"
-                                                Step="0.02"
-                                                StripLinesVisibility="Visible" />
-                            </charting:ChartArea.AxisY>
-                        </charting:ChartArea>
-
-                    </charting:ChartDefaultView.ChartArea>
-                    <telerik:ChartDefaultView.ChartLegend>
-                        <telerik:ChartLegend Visibility="Collapsed" />
-                    </telerik:ChartDefaultView.ChartLegend>
-                    <!--<telerik:ChartDefaultView.ChartTitle>
-                        <telerik:ChartTitle Visibility="Visible" HorizontalAlignment="Center">
-                            <Border BorderBrush="LightBlue" CornerRadius="5" BorderThickness="2">
-                                <TextBlock Text="Reverse Nexus" />
-                            </Border>
-                        </telerik:ChartTitle>
-                    </telerik:ChartDefaultView.ChartTitle>-->
-                </charting:ChartDefaultView>
-            </chart:RadChart.DefaultView>
         </chart:RadChart>
 
         <StackPanel Orientation="Horizontal" Height="20" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,20,100,0">
