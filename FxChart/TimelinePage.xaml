@@ -11,7 +11,16 @@
              d:DesignWidth="400"
              mc:Ignorable="d">
     <UserControl.Resources>
-        <Style x:Key="CustomPoint" TargetType="telerik:PointMark">
+        <Color x:Key="BlueColor">#1BA1E2</Color>
+        <Color x:Key="LightBlueColor">#FFB2E0F4</Color>
+        <Color x:Key="LightGreyColor">#ffc9c8c8</Color>
+        <Color x:Key="GreyColor">#ff6d6d6d</Color>
+        <SolidColorBrush x:Key="BlueBrush" Color="{StaticResource BlueColor}" />
+        <SolidColorBrush x:Key="LightBlueBrush" Color="{StaticResource LightBlueColor}" />
+        <SolidColorBrush x:Key="LightGrayBrush" Color="{StaticResource LightGreyColor}" />
+        <SolidColorBrush x:Key="GrayBrush" Color="{StaticResource GreyColor}" />
+
+        <Style x:Key="CustomPointMark" TargetType="telerik:PointMark">
             <Setter Property="Height" Value="25" />
             <Setter Property="Width" Value="15" />
             <Setter Property="VerticalAlignment" Value="Top" />
@@ -37,65 +46,199 @@
                 </Setter.Value>
             </Setter>
         </Style>
+
+        <Style x:Key="SeriesItemLabelStyle" TargetType="telerik:SeriesItemLabel">
+            <Setter Property="FontSize" Value="12" />
+            <Setter Property="FontFamily" Value="Segoe UI" />
+            <Setter Property="FontWeight" Value="Bold" />
+            <Setter Property="Background" Value="Transparent" />
+            <Setter Property="HorizontalContentAlignment" Value="Center" />
+            <Setter Property="VerticalAlignment" Value="Top" />
+            <Setter Property="Padding" Value="2,0" />
+            <Setter Property="IsHitTestVisible" Value="False" />
+            <Setter Property="Foreground" Value="Gray" />
+            <Setter Property="LabelStyle">
+                <Setter.Value>
+                    <Style TargetType="Border">
+                        <Setter Property="BorderThickness" Value="0" />
+                    </Style>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="ContentTemplate">
+                <Setter.Value>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding Content, RelativeSource={RelativeSource TemplatedParent}}" TextAlignment="{Binding HorizontalContentAlignment, RelativeSource={RelativeSource TemplatedParent}}" />
+                    </DataTemplate>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="telerik:SeriesItemLabel">
+                        <Canvas x:Name="PART_MainContainer">
+                            <ContentPresenter Margin="{TemplateBinding Padding}" />
+                        </Canvas>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="RectangleStyle" TargetType="Rectangle">
+            <Setter Property="Margin" Value="0,0,-1,0" />
+            <Setter Property="Stroke" Value="{StaticResource LightGrayBrush}" />
+            <Setter Property="StrokeThickness" Value="1" />
+            <Setter Property="Fill" Value="Transparent" />
+            <Setter Property="VerticalAlignment" Value="Stretch" />
+            <Setter Property="HorizontalAlignment" Value="Stretch" />
+        </Style>
+
+        <Style x:Key="EndRectangleStyle" TargetType="Rectangle">
+            <Setter Property="Margin" Value="0,0,0,0" />
+            <Setter Property="Stroke" Value="{StaticResource BlueBrush}" />
+            <Setter Property="StrokeThickness" Value="1" />
+            <Setter Property="Fill" Value="{StaticResource BlueBrush}" />
+            <Setter Property="VerticalAlignment" Value="Stretch" />
+            <Setter Property="HorizontalAlignment" Value="Stretch" />
+        </Style>
+
+        <Style x:Key="DateTextBlockStyle" TargetType="TextBlock">
+            <Setter Property="Foreground" Value="{StaticResource GrayBrush}" />
+            <Setter Property="FontSize" Value="12" />
+            <Setter Property="FontFamily" Value="Segoe UI" />
+            <Setter Property="FontWeight" Value="ExtraBold" />
+        </Style>
     </UserControl.Resources>
 
     <Grid x:Name="LayoutRoot" Background="White">
-        <chart:RadChart x:Name="RadChart1"
-                        Margin="100"
-                        Background="White"
-                        BorderThickness="0"
-                        FontFamily="/TradeChart;component/Fonts/Fonts.zip#Segoe UI"
-                        FontSize="10.667"
-                        ItemsSource="{Binding .}">
-            <chart:RadChart.DefaultView>
-                <charting:ChartDefaultView>
-                    <charting:ChartDefaultView.ChartArea>
-                        <charting:ChartArea Background="Transparent" NoDataString="Loading FX data from historic, future, calculation and coupon services...">
-                            <charting:ChartArea.AxisX>
-                                <charting:AxisX AutoRange="false"
-                                                DefaultLabelFormat="dd-MMM"
-                                                MajorGridLinesVisibility="Visible"
-                                                MajorTicksVisibility="Collapsed"
-                                                MinorGridLinesVisibility="Collapsed"
-                                                MinorTicksVisibility="Collapsed"
-                                                StripLinesVisibility="Collapsed" />
-                            </charting:ChartArea.AxisX>
-                            <charting:ChartArea.AxisY>
-                                <charting:AxisY MaxValue="2"
-                                                MinValue="0"
-                                                Visibility="Collapsed" />
-                            </charting:ChartArea.AxisY>
-                        </charting:ChartArea>
+        <StackPanel Margin="100">
+            <chart:RadChart x:Name="RadChart1"
+                            Height="80"
+                            BorderThickness="0" />
 
-                    </charting:ChartDefaultView.ChartArea>
-                    <telerik:ChartDefaultView.ChartLegend>
-                        <telerik:ChartLegend Visibility="Collapsed" />
-                    </telerik:ChartDefaultView.ChartLegend>
-                </charting:ChartDefaultView>
-            </chart:RadChart.DefaultView>
-            <chart:RadChart.SeriesMappings>
-                <charting:SeriesMapping>
-                    <charting:SeriesMapping.SeriesDefinition>
-                        <charting:LineSeriesDefinition EmptyPointBehavior="Gap"
-                                                       PointMarkItemStyle="{StaticResource CustomPoint}"
-                                                       SeriesStyle=""
-                                                       ShowItemLabels="False"
-                                                       ShowPointMarks="True">
-                            <charting:LineSeriesDefinition.Appearance>
-                                <charting:SeriesAppearanceSettings>
-                                    <charting:SeriesAppearanceSettings.PointMark>
-                                        <charting:PointMarkAppearanceSettings Fill="#ff6a9af8" StrokeThickness="0" />
-                                    </charting:SeriesAppearanceSettings.PointMark>
-                                </charting:SeriesAppearanceSettings>
-                            </charting:LineSeriesDefinition.Appearance>
-                        </charting:LineSeriesDefinition>
-                    </charting:SeriesMapping.SeriesDefinition>
+            <Grid Margin="0,-2,0,0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
 
-                    <charting:ItemMapping DataPointMember="YValue" FieldName="YValue" />
-                    <charting:ItemMapping DataPointMember="XValue" FieldName="ActivityTime" />
-                </charting:SeriesMapping>
-            </chart:RadChart.SeriesMappings>
-        </chart:RadChart>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="40" />
+                </Grid.RowDefinitions>
+
+                <Rectangle Grid.Column="0" Style="{StaticResource EndRectangleStyle}" />
+                <Rectangle Grid.Column="1"
+                           Margin="-1,0,-1,0"
+                           Style="{StaticResource RectangleStyle}" />
+                <Rectangle Grid.Column="2" Style="{StaticResource RectangleStyle}" />
+                <Rectangle Grid.Column="3" Style="{StaticResource RectangleStyle}" />
+                <Rectangle Grid.Column="4" Style="{StaticResource RectangleStyle}" />
+                <Rectangle Grid.Column="5" Style="{StaticResource RectangleStyle}" />
+                <Rectangle Grid.Column="6" Style="{StaticResource RectangleStyle}" />
+                <Rectangle Grid.Column="7" Style="{StaticResource RectangleStyle}" />
+                <Rectangle Grid.Column="8" Style="{StaticResource RectangleStyle}" />
+                <Rectangle Grid.Column="9" Style="{StaticResource RectangleStyle}" />
+                <Rectangle Grid.Column="10" Style="{StaticResource RectangleStyle}" />
+                <Rectangle Grid.Column="11" Style="{StaticResource RectangleStyle}" />
+                <Rectangle Grid.Column="12" Style="{StaticResource RectangleStyle}" />
+                <Rectangle Grid.Column="13" Style="{StaticResource RectangleStyle}" />
+                <Rectangle Grid.Column="14" Style="{StaticResource RectangleStyle}" />
+                <Rectangle Grid.Column="15" Style="{StaticResource RectangleStyle}" />
+                <Rectangle Grid.Column="16" Style="{StaticResource RectangleStyle}" />
+                <Rectangle Grid.Column="17" Style="{StaticResource RectangleStyle}" />
+                <Rectangle Grid.Column="18" Style="{StaticResource RectangleStyle}" />
+                <Rectangle Grid.Column="19" Style="{StaticResource RectangleStyle}" />
+                <Rectangle Grid.Column="20" Style="{StaticResource RectangleStyle}" />
+                <Rectangle Grid.Column="21" Style="{StaticResource RectangleStyle}" />
+                <Rectangle Grid.Column="22" Style="{StaticResource RectangleStyle}" />
+                <Rectangle Grid.Column="23" Style="{StaticResource RectangleStyle}" />
+                <Rectangle Grid.Column="24" Style="{StaticResource EndRectangleStyle}" />
+                <Rectangle Grid.Column="25" Style="{StaticResource RectangleStyle}" />
+                <Rectangle Grid.Column="26" Style="{StaticResource RectangleStyle}" />
+                <Rectangle Grid.Column="27" Style="{StaticResource RectangleStyle}" />
+                <Rectangle Grid.Column="28" Style="{StaticResource RectangleStyle}" />
+                <Rectangle Grid.Column="29" Style="{StaticResource RectangleStyle}" />
+                <Rectangle Grid.Column="30" Style="{StaticResource RectangleStyle}" />
+                <Rectangle Grid.Column="31" Style="{StaticResource RectangleStyle}" />
+                <Rectangle Grid.Column="32" Style="{StaticResource RectangleStyle}" />
+                <Rectangle Grid.Column="33" Style="{StaticResource RectangleStyle}" />
+                <Rectangle Grid.Column="34" Style="{StaticResource RectangleStyle}" />
+                <Rectangle Grid.Column="35" Style="{StaticResource RectangleStyle}" />
+                <Rectangle Grid.Column="36" Style="{StaticResource RectangleStyle}" />
+                <Rectangle Grid.Column="37" Style="{StaticResource RectangleStyle}" />
+                <Rectangle Grid.Column="38" Style="{StaticResource RectangleStyle}" />
+                <Rectangle Grid.Column="39" Style="{StaticResource RectangleStyle}" />
+                <Rectangle Grid.Column="40" Style="{StaticResource RectangleStyle}" />
+                <Rectangle Grid.Column="41" Style="{StaticResource RectangleStyle}" />
+                <Rectangle Grid.Column="42" Style="{StaticResource RectangleStyle}" />
+                <Rectangle Grid.Column="43" Style="{StaticResource RectangleStyle}" />
+                <Rectangle Grid.Column="44" Style="{StaticResource RectangleStyle}" />
+                <Rectangle Grid.Column="45" Style="{StaticResource RectangleStyle}" />
+                <Rectangle Grid.Column="46" Style="{StaticResource RectangleStyle}" />
+                <Rectangle Grid.Column="47" Style="{StaticResource RectangleStyle}" />
+                <Rectangle Grid.Column="48" Style="{StaticResource EndRectangleStyle}" />
+            </Grid>
+
+            <Grid>
+                <TextBlock x:Name="YesterdayTextBlock"
+                           Margin="10,0,0,0"
+                           HorizontalAlignment="Left"
+                           Style="{StaticResource DateTextBlockStyle}" />
+                <TextBlock x:Name="TodayTextBlock"
+                           Margin="10,0,0,0"
+                           HorizontalAlignment="Center"
+                           Style="{StaticResource DateTextBlockStyle}" />
+                <TextBlock x:Name="TomorrowTextBlock"
+                           Margin="0,0,10,0"
+                           HorizontalAlignment="Right"
+                           Style="{StaticResource DateTextBlockStyle}" />
+            </Grid>
+
+        </StackPanel>
     </Grid>
 
 </UserControl>
