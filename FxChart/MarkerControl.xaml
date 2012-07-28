@@ -1,0 +1,19 @@
+﻿<UserControl x:Class="FxChart.MarkerControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             d:DesignHeight="562"
+             d:DesignWidth="401"
+             mc:Ignorable="d">
+
+    <Grid x:Name="LayoutRoot">
+        <Path Margin="0,0,0,-0.243"
+              Data="M198.5,96.5 C142.16696,96.5 96.5,142.16696 96.499992,198.5 C96.5,254.83304 142.16696,300.5 198.5,300.5 C254.83304,300.5 300.5,254.83304 300.5,198.5 C300.5,142.16696 254.83304,96.5 198.5,96.5 z M200.5,0.5 C310.95694,0.5 400.5,90.04306 400.5,200.5 C400.5,266.0838 368.93259,324.29465 320.16318,360.76709 L319.90009,360.95898 L202.78197,561.74298 L92.60006,368.92462 L88.678093,366.34314 C35.477753,330.4017 0.49999619,269.53558 0.5,200.5 C0.49999619,90.04306 90.043045,0.5 200.5,0.5 z"
+              Fill="#FF000000"
+              Stretch="Fill"
+              Stroke="#FF000000"
+              StrokeLineJoin="Round"
+              UseLayoutRounding="False" />
+    </Grid>
+</UserControl>
