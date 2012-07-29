@@ -4,8 +4,8 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
-             d:DesignHeight="300"
-             d:DesignWidth="400"
+             d:DesignHeight="350"
+             d:DesignWidth="700"
              mc:Ignorable="d">
     <UserControl.Resources>
         <Style x:Key="legendStyle" TargetType="StackPanel">
@@ -19,24 +19,29 @@
             <Setter Property="Margin" Value="4,2,4,2" />
         </Style>
         <Style x:Key="titleStyle" TargetType="TextBlock">
-            <Setter Property="FontFamily" Value="Segoe UI" />
-            <Setter Property="FontSize" Value="18" />
+            <Setter Property="FontFamily" Value="Segoe UI Light" />
+            <Setter Property="FontSize" Value="32" />
             <Setter Property="Foreground" Value="#FF767676" />
-            <Setter Property="Margin" Value="0,7" />
             <Setter Property="HorizontalAlignment" Value="Center" />
         </Style>
     </UserControl.Resources>
 
     <Grid x:Name="LayoutRoot" Background="White">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="300"/>
-            <ColumnDefinition Width="100"/>
+            <ColumnDefinition Width="300" />
+            <ColumnDefinition Width="100" />
+            <ColumnDefinition Width="300" />
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="300"/>
+            <RowDefinition Height="50" />
+            <RowDefinition Height="300" />
         </Grid.RowDefinitions>
-        
-        <telerik:RadCartesianChart x:Name="BarChart">
+
+        <TextBlock Grid.ColumnSpan="3"
+                   Style="{StaticResource titleStyle}"
+                   Text="Medals so far" />
+
+        <telerik:RadCartesianChart x:Name="BarChart" Grid.Row="1">
 
             <telerik:BarSeries CategoryBinding="ActivityDate" ValueBinding="Count" />
             <telerik:BarSeries CategoryBinding="ActivityDate" ValueBinding="Count" />
@@ -45,41 +50,126 @@
             <telerik:BarSeries CategoryBinding="ActivityDate" ValueBinding="Count" />
 
             <telerik:RadCartesianChart.HorizontalAxis>
-                <telerik:DateTimeCategoricalAxis DateTimeComponent="Day" LabelFormat="dd MM" />
+                <telerik:DateTimeCategoricalAxis DateTimeComponent="Day" LabelFormat="dd MMM" />
             </telerik:RadCartesianChart.HorizontalAxis>
             <telerik:RadCartesianChart.VerticalAxis>
                 <telerik:LinearAxis />
             </telerik:RadCartesianChart.VerticalAxis>
 
             <telerik:RadCartesianChart.Grid>
-                <telerik:CartesianChartGrid MajorLinesVisibility="Y" />
+                <telerik:CartesianChartGrid MajorLinesVisibility="None" />
             </telerik:RadCartesianChart.Grid>
 
         </telerik:RadCartesianChart>
 
         <StackPanel x:Name="BarLegend"
+                    Grid.Row="1"
                     Grid.Column="1"
                     Style="{StaticResource legendStyle}">
             <StackPanel Grid.Column="1" Orientation="Horizontal">
                 <Rectangle Width="12" Height="12" />
-                <TextBlock Style="{StaticResource legendItemStyle}" Text="Option" />
+                <TextBlock Style="{StaticResource legendItemStyle}" Text="Brazil" />
             </StackPanel>
             <StackPanel Grid.Column="2" Orientation="Horizontal">
                 <Rectangle Width="12" Height="12" />
-                <TextBlock Style="{StaticResource legendItemStyle}" Text="BRC" />
+                <TextBlock Style="{StaticResource legendItemStyle}" Text="China" />
             </StackPanel>
             <StackPanel Orientation="Horizontal">
                 <Rectangle Width="12" Height="12" />
-                <TextBlock Style="{StaticResource legendItemStyle}" Text="Finer" />
+                <TextBlock Style="{StaticResource legendItemStyle}" Text="Italy" />
             </StackPanel>
             <StackPanel Grid.Column="3" Orientation="Horizontal">
                 <Rectangle Width="12" Height="12" />
-                <TextBlock Style="{StaticResource legendItemStyle}" Text="Futures" />
+                <TextBlock Style="{StaticResource legendItemStyle}" Text="GB" />
             </StackPanel>
             <StackPanel Grid.Column="3" Orientation="Horizontal">
                 <Rectangle Width="12" Height="12" />
-                <TextBlock Style="{StaticResource legendItemStyle}" Text="FinerS" />
+                <TextBlock Style="{StaticResource legendItemStyle}" Text="USA" />
             </StackPanel>
         </StackPanel>
+
+        <Grid Grid.Row="1"
+              Grid.Column="2"
+              Width="300">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="100" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+            <Path Grid.ColumnSpan="2"
+                  Margin="40,3,-6,3"
+                  Data="M608.5,187 L351.5,187 L331.5,238 L608.49994,238 z"
+                  Fill="Gold"
+                  Stretch="Fill" />
+            <TextBlock x:Name="GoldCountTextBlock"
+                       Margin="0,0,6,0"
+                       HorizontalAlignment="Right"
+                       VerticalAlignment="Center"
+                       FontFamily="Segoe UI"
+                       FontSize="36"
+                       Foreground="White" />
+            <TextBlock x:Name="GoldDescriptionTextBlock"
+                       Grid.Column="1"
+                       Margin="0,2,6,0"
+                       HorizontalAlignment="Right"
+                       VerticalAlignment="Center"
+                       FontFamily="Segoe UI"
+                       FontSize="12"
+                       TextWrapping="Wrap" />
+
+            <Path Grid.Row="1"
+                  Grid.ColumnSpan="2"
+                  Margin="25,3,-6,3"
+                  Data="M608.5,187 L337.55035,187 L317.55035,238 L608.49994,238 z"
+                  Fill="Silver"
+                  Stretch="Fill" />
+            <TextBlock x:Name="SilverCountTextBlock"
+                       Grid.Row="1"
+                       Margin="0,0,6,0"
+                       HorizontalAlignment="Right"
+                       VerticalAlignment="Center"
+                       FontFamily="Segoe UI"
+                       FontSize="36"
+                       Foreground="White" />
+            <TextBlock x:Name="SilverDescriptionTextBlock"
+                       Grid.Row="1"
+                       Grid.Column="1"
+                       Margin="0,2,6,0"
+                       HorizontalAlignment="Right"
+                       VerticalAlignment="Center"
+                       FontFamily="Segoe UI"
+                       FontSize="12"
+                       TextWrapping="Wrap" />
+
+            <Path Grid.Row="2"
+                  Grid.ColumnSpan="2"
+                  Margin="10,3,-6,3"
+                  Data="M608.5,187 L323.60071,187 L303.60071,238 L608.49994,238 z"
+                  Fill="#ff765221"
+                  Stretch="Fill" />
+            <TextBlock x:Name="BronzeCountTextBlock"
+                       Grid.Row="2"
+                       Margin="0,0,6,0"
+                       HorizontalAlignment="Right"
+                       VerticalAlignment="Center"
+                       FontFamily="Segoe UI"
+                       FontSize="36"
+                       Foreground="White" />
+            <TextBlock x:Name="BronzeDescriptionTextBlock"
+                       Grid.Row="2"
+                       Grid.Column="1"
+                       Margin="0,2,6,0"
+                       HorizontalAlignment="Right"
+                       VerticalAlignment="Center"
+                       FontFamily="Segoe UI"
+                       FontSize="12"
+                       TextWrapping="Wrap" />
+        </Grid>
+
     </Grid>
 </UserControl>

@@ -1,0 +1,144 @@
+﻿<UserControl x:Class="FxChart.DoughnutPage"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
+             d:DesignHeight="400"
+             d:DesignWidth="400"
+             mc:Ignorable="d">
+    <UserControl.Resources>
+        <Style x:Key="CustomDoughnut" TargetType="telerik:Doughnut">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="telerik:Doughnut">
+                        <Canvas x:Name="PART_MainContainer">
+                            <Ellipse Width="{TemplateBinding ItemActualWidth}"
+                                     Height="{TemplateBinding ItemActualHeight}"
+                                     Clip="{TemplateBinding FigurePath}"
+                                     StrokeThickness="0"
+                                     Style="{TemplateBinding ItemStyle}" />
+                            <Path x:Name="PART_DefiningGeometry"
+                                  Data="{TemplateBinding FigurePath2}"
+                                  Fill="Transparent"
+                                  Style="{TemplateBinding ItemStyle}" />
+                            <Canvas.RenderTransform>
+                                <TransformGroup>
+                                    <ScaleTransform x:Name="PART_AnimationTransform"
+                                                    ScaleX="0"
+                                                    ScaleY="0" />
+                                    <TranslateTransform x:Name="PART_ExplodeTransform" />
+                                </TransformGroup>
+                            </Canvas.RenderTransform>
+                            <VisualStateManager.VisualStateGroups>
+                                <VisualStateGroup x:Name="HoverStates">
+                                    <VisualState x:Name="Normal">
+                                        <Storyboard>
+                                            <DoubleAnimation Duration="0.00:00:00.15"
+                                                             Storyboard.TargetName="PART_MainContainer"
+                                                             Storyboard.TargetProperty="Opacity"
+                                                             To="1.0" />
+                                        </Storyboard>
+                                    </VisualState>
+                                    <VisualState x:Name="Hovered">
+                                        <Storyboard>
+                                            <DoubleAnimation Duration="0.00:00:00.15"
+                                                             Storyboard.TargetName="PART_MainContainer"
+                                                             Storyboard.TargetProperty="Opacity"
+                                                             To="1.0" />
+                                        </Storyboard>
+                                    </VisualState>
+                                    <VisualState x:Name="Hidden">
+                                        <Storyboard>
+                                            <DoubleAnimation Duration="0.00:00:00.15"
+                                                             Storyboard.TargetName="PART_MainContainer"
+                                                             Storyboard.TargetProperty="Opacity"
+                                                             To="0.6" />
+                                        </Storyboard>
+                                    </VisualState>
+                                </VisualStateGroup>
+                                <VisualStateGroup x:Name="SelectionStates">
+                                    <VisualState x:Name="Unselected">
+                                        <Storyboard>
+                                            <DoubleAnimation Duration="0.00:00:00.2"
+                                                             Storyboard.TargetName="PART_ExplodeTransform"
+                                                             Storyboard.TargetProperty="X"
+                                                             To="0" />
+                                            <DoubleAnimation Duration="0.00:00:00.2"
+                                                             Storyboard.TargetName="PART_ExplodeTransform"
+                                                             Storyboard.TargetProperty="Y"
+                                                             To="0" />
+                                        </Storyboard>
+                                    </VisualState>
+                                    <VisualState x:Name="Selected">
+                                        <Storyboard>
+                                            <DoubleAnimation Duration="0.00:00:00.2"
+                                                             Storyboard.TargetName="PART_ExplodeTransform"
+                                                             Storyboard.TargetProperty="X" />
+                                            <DoubleAnimation Duration="0.00:00:00.2"
+                                                             Storyboard.TargetName="PART_ExplodeTransform"
+                                                             Storyboard.TargetProperty="Y" />
+                                        </Storyboard>
+                                    </VisualState>
+                                </VisualStateGroup>
+                            </VisualStateManager.VisualStateGroups>
+                        </Canvas>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </UserControl.Resources>
+
+    <Grid x:Name="LayoutRoot" Background="White">
+
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+
+        <telerik:RadChart x:Name="RadDoughnutChart" />
+
+        <telerik:RadPieChart x:Name="ExplodedPieChart" Grid.Row="1">
+            <telerik:PieSeries ShowLabels="True">
+                <telerik:PieSeries.SliceStyles>
+                    <Style TargetType="Path">
+                        <Setter Property="Fill" Value="#D95921" />
+                        <Setter Property="Stroke" Value="#FFFFFF" />
+                    </Style>
+                    <Style TargetType="Path">
+                        <Setter Property="Fill" Value="#BABABA" />
+                        <Setter Property="Stroke" Value="#FFFFFF" />
+                    </Style>
+                    <Style TargetType="Path">
+                        <Setter Property="Fill" Value="#BABABA" />
+                        <Setter Property="Stroke" Value="#FFFFFF" />
+                    </Style>
+                    <Style TargetType="Path">
+                        <Setter Property="Fill" Value="#BABABA" />
+                        <Setter Property="Stroke" Value="#FFFFFF" />
+                    </Style>
+                    <Style TargetType="Path">
+                        <Setter Property="Fill" Value="#BABABA" />
+                        <Setter Property="Stroke" Value="#FFFFFF" />
+                    </Style>
+                </telerik:PieSeries.SliceStyles>
+                <telerik:PieSeries.DataPoints>
+                    <telerik:PieDataPoint Label="International&#10;27.41%"
+                                          OffsetFromCenter="0.07"
+                                          Value="27.41" />
+                    <telerik:PieDataPoint Label="England&#10;26.59%" Value="26.59" />
+                    <telerik:PieDataPoint Label="Scotland&#10;20.43%" Value="20.43" />
+                    <telerik:PieDataPoint Label="Wales&#10;16.56%" Value="16.56" />
+                    <telerik:PieDataPoint Label="Northern Ireland&#10;9.01%" Value="9.01" />
+                </telerik:PieSeries.DataPoints>
+                <telerik:PieSeries.LabelDefinitions>
+                    <telerik:ChartSeriesLabelDefinition Margin="-8,0,0,0" />
+                </telerik:PieSeries.LabelDefinitions>
+                <telerik:PieSeries.AngleRange>
+                    <telerik:AngleRange StartAngle="270" SweepAngle="360" />
+                </telerik:PieSeries.AngleRange>
+            </telerik:PieSeries>
+        </telerik:RadPieChart>
+
+    </Grid>
+</UserControl>

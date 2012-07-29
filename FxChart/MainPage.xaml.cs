@@ -89,7 +89,7 @@ namespace FxChart
                 future = ConvertJson<IList<Price>>(e);
                 GetRangeData();
             };
-            web.OpenReadAsync(new Uri(HtmlPage.Document.DocumentUri, "FutureService.ashx"));
+            web.OpenReadAsync(new Uri(HtmlPage.Document.DocumentUri, "USAervice.ashx"));
         }
 
         private void GetRangeData()

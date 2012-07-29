@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows;
+using Telerik.Windows.Controls.Charting;
 
 namespace FxChart
 {
@@ -19,7 +20,8 @@ namespace FxChart
         {
             //this.RootVisual = new MainPage();
             //this.RootVisual = new TimelinePage();
-            this.RootVisual = new MultiBarChart();
+            //this.RootVisual = new MultiBarChart();
+            this.RootVisual = new DoughnutPage();
         }
 
         private void Application_Exit(object sender, EventArgs e)
