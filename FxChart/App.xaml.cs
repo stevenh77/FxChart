@@ -18,7 +18,8 @@ namespace FxChart
         private void Application_Startup(object sender, StartupEventArgs e)
         {
             //this.RootVisual = new MainPage();
-            this.RootVisual = new TimelinePage();
+            //this.RootVisual = new TimelinePage();
+            this.RootVisual = new MultiBarChart();
         }
 
         private void Application_Exit(object sender, EventArgs e)
